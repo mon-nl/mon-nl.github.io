@@ -11,12 +11,9 @@
 <!-- Header -->
 <header>
     <div class="header-top">
-        <!-- Logo -->
         <div class="logo">
-            <img src="MON logo.svg" alt="MON Logo">
+            <img src="images/MON logo.svg" alt="MON Logo">
         </div>
-
-        <!-- Datum en tijd -->
         <div class="date-time" id="date-time"></div>
     </div>
 
@@ -25,10 +22,8 @@
         <span>Breaking News:</span>
         <div class="ticker-wrapper">
             <div class="ticker-content" id="ticker-content">
-                Nieuwe weersverwachtingen voor Nederland vandaag!
-                <img src="MON wereldbol.svg" alt="Wereldbol" class="ticker-icon">
-                Zon en lichte regenbuien wisselen elkaar af in verschillende provincies.
-                <img src="MON wereldbol.svg" alt="Wereldbol" class="ticker-icon">
+                Vandaag zonnig in het zuiden, bewolkt in het noorden.
+                <img src="images/MON wereldbol.svg" alt="Wereldbol" class="ticker-icon">
             </div>
         </div>
     </div>
@@ -42,29 +37,23 @@
         <li><a href="gezondheidszorg.html">Gezondheidszorg</a></li>
         <li><a href="sz.html">Sociale Zekerheid</a></li>
         <li><a href="weer.html">Weer</a></li>
-        <li><a href="extras.html">Extra's</a></li>
     </ul>
 </nav>
 
 <!-- Hoofdcontent -->
 <div class="container main-content">
 
-    <!-- Hoofdartikel -->
     <article>
         <h2>Actueel Weer Nederland</h2>
-        <div id="weather">
-            <p id="weather-location">Locatie: Amsterdam</p>
-            <p id="weather-temp">Temperatuur: 12°C</p>
-            <p id="weather-desc">Beschrijving: Bewolkt met kans op lichte regen</p>
-            <p id="weather-humidity">Luchtvochtigheid: 85%</p>
-            <p id="weather-wind">Wind: 14 km/h</p>
-        </div>
+        <img src="Weer.png" alt="Weerbeeld Nederland" class="weather-img">
+        <p>
+            Op deze afbeelding zie je de weersituatie in Nederland vandaag. In het zuiden is het voornamelijk zonnig met temperaturen rond de 15°C, terwijl het noorden meer bewolking en kans op lichte regen heeft. Houd altijd rekening met veranderend weer en kleed je passend.
+        </p>
     </article>
 
-    <!-- Sidebar -->
     <div class="sidebar">
         <h3>Weertips</h3>
-        <p>Denk eraan een jas mee te nemen bij regenachtige dagen en zonnebrand te gebruiken op zonnige momenten. Blijf altijd op de hoogte van veranderend weer via MON Weer.</p>
+        <p>Neem een paraplu mee bij regenachtige dagen en draag zonnebrand op zonnige momenten. Blijf op de hoogte van het weer via MON Weer.</p>
     </div>
 
 </div>
@@ -74,7 +63,6 @@
     &copy; 2040 De Toekomst van Nederland | Alle rechten voorbehouden
 </footer>
 
-<!-- JavaScript -->
 <script>
 // Dynamische datum en tijd
 function updateDateTime() {
@@ -92,7 +80,7 @@ const ticker = document.getElementById('ticker-content');
 let tickerX = 0;
 
 function animateTicker() {
-    tickerX -= 1; // snelheid
+    tickerX -= 1;
     const width = ticker.offsetWidth;
     const parentWidth = ticker.parentElement.offsetWidth;
 
@@ -104,35 +92,6 @@ function animateTicker() {
     requestAnimationFrame(animateTicker);
 }
 animateTicker();
-
-// Voorbeeld dynamisch weerbericht (kan later vervangen worden door OpenWeatherMap API)
-const weatherData = {
-    location: "Amsterdam",
-    temp: 12,
-    desc: "Bewolkt met kans op lichte regen",
-    humidity: 85,
-    wind: 14
-};
-
-function updateWeather(data) {
-    document.getElementById('weather-location').textContent = `Locatie: ${data.location}`;
-    document.getElementById('weather-temp').textContent = `Temperatuur: ${data.temp}°C`;
-    document.getElementById('weather-desc').textContent = `Beschrijving: ${data.desc}`;
-    document.getElementById('weather-humidity').textContent = `Luchtvochtigheid: ${data.humidity}%`;
-    document.getElementById('weather-wind').textContent = `Wind: ${data.wind} km/h`;
-}
-
-// Toon eerst het voorbeeldweer
-updateWeather(weatherData);
-
-// Simuleer dynamische updates elke 10 seconden
-setInterval(() => {
-    weatherData.temp += Math.floor(Math.random() * 3 - 1); // -1,0,1 graden
-    weatherData.humidity += Math.floor(Math.random() * 5 - 2); // -2 tot +2%
-    weatherData.wind += Math.floor(Math.random() * 3 - 1); // -1 tot +1 km/h
-    updateWeather(weatherData);
-}, 10000);
-
 </script>
 
 </body>
