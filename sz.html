@@ -59,5 +59,38 @@
     &copy; 2040 De Toekomst van Nederland | Alle rechten voorbehouden
 </footer>
 
+<!-- JavaScript: datum/tijd + ticker -->
+<script>
+    // Datum en tijd
+    function updateDateTime() {
+        const dt = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const dateStr = dt.toLocaleDateString('nl-NL', options);
+        const timeStr = dt.toLocaleTimeString('nl-NL', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        document.getElementById('date-time').textContent = `${dateStr} | ${timeStr}`;
+    }
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+
+    // Continu scroll ticker
+    const ticker = document.getElementById('ticker-content');
+    let tickerX = 0;
+
+    function animateTicker() {
+        tickerX -= 1; // snelheid
+        const width = ticker.offsetWidth;
+        const parentWidth = ticker.parentElement.offsetWidth;
+
+        if (tickerX <= -width) {
+            tickerX = parentWidth;
+        }
+
+        ticker.style.transform = `translateX(${tickerX}px)`;
+        requestAnimationFrame(animateTicker);
+    }
+
+    animateTicker();
+</script>
+
 </body>
 </html>
