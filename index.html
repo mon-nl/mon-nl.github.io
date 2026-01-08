@@ -12,15 +12,11 @@
 <!-- Header -->
 <header>
     <div class="header-top">
-        <!-- Logo -->
         <div class="logo">
             <img src="MON logo - wit.svg" alt="MON Logo">
         </div>
-
-        <!-- Datum en tijd -->
         <div class="date-time" id="date-time"></div>
     </div>
-
 </header>
 
 <!-- Navigatie -->
@@ -35,27 +31,25 @@
     </ul>
 </nav>
 
-    <!-- Breaking news ticker -->
-    <div id="breaking-news">
-        <span>Breaking News:</span>
-        <div class="ticker-wrapper">
-            <div class="ticker-content" id="ticker-content">
-                Nieuwe onderwijsprogramma's en technologie verbeteren de Nederlandse verzorgingsstaat!
-                <img src="MON wereldbol.svg" alt="Wereldbol" class="ticker-icon">
-                Robotisering in de zorg vermindert werkdruk en verhoogt kwaliteit van zorg!
-                <img src="MON wereldbol.svg" alt="Wereldbol" class="ticker-icon">
-                Sociale zekerheid biedt nu zekerheid voor flexwerkers en zzp’ers!
-                <img src="MON wereldbol.svg" alt="Wereldbol" class="ticker-icon">
-                Innovaties in woningmarkt en digitalisering ondersteunen een bloeiende economie!
-                <img src="MON wereldbol.svg" alt="Wereldbol" class="ticker-icon">
-            </div>
+<!-- Breaking news ticker -->
+<section id="breaking-news">
+    <span>Breaking News:</span>
+    <div class="ticker-wrapper">
+        <div class="ticker-content" id="ticker-content">
+            Nieuwe onderwijsprogramma's en technologie verbeteren de Nederlandse verzorgingsstaat!
+            <img src="MON wereldbol.svg" alt="Wereldbol" class="ticker-icon">
+            Robotisering in de zorg vermindert werkdruk en verhoogt kwaliteit van zorg!
+            <img src="MON wereldbol.svg" alt="Wereldbol" class="ticker-icon">
+            Sociale zekerheid biedt nu zekerheid voor flexwerkers en zzp’ers!
+            <img src="MON wereldbol.svg" alt="Wereldbol" class="ticker-icon">
+            Innovaties in woningmarkt en digitalisering ondersteunen een bloeiende economie!
+            <img src="MON wereldbol.svg" alt="Wereldbol" class="ticker-icon">
         </div>
     </div>
+</section>
 
 <!-- Hoofdcontent -->
 <div class="container main-content">
-
-    <!-- Hoofdartikel -->
     <article>
         <h2>Welkom in 2040: een vernieuwde verzorgingsstaat</h2>
         <p>Na jaren van economische onzekerheid en personeelstekorten staat Nederland er in 2040 stabiel en vooruitstrevend voor. Door gerichte investeringen in onderwijs, gezondheidszorg en sociale zekerheid is het gelukt om welzijn en welvaart beter te combineren.</p>
@@ -63,12 +57,10 @@
         <p>Op deze website lees je hoe het onderwijs, de gezondheidszorg en de sociale zekerheid zich hebben ontwikkeld in 2040 en hoe zij elkaar versterken. Daarnaast lees je over innovaties in de woningmarkt, technologie en arbeid die bijdragen aan een sterke samenleving.</p>
     </article>
 
-    <!-- Sidebar -->
     <div class="sidebar">
         <h3>Extra info</h3>
         <p>Investeringen in onderwijs, gezondheidszorg en sociale zekerheid hebben geleid tot een samenleving waarin mensen langer zelfstandig en gezond kunnen leven. Technologie ondersteunt professionals en burgers zonder dat persoonlijke aandacht verloren gaat.</p>
     </div>
-
 </div>
 
 <!-- Footer -->
@@ -76,38 +68,37 @@
     &copy; 2040 De Toekomst van Nederland | Alle rechten voorbehouden
 </footer>
 
-<!-- JavaScript: dynamische datum/tijd + ticker -->
+<!-- JavaScript: datum/tijd + ticker -->
 <script>
-// Datum en tijd
-function updateDateTime() {
-    const dt = new Date();
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    const dateStr = dt.toLocaleDateString('nl-NL', options);
-    const timeStr = dt.toLocaleTimeString('nl-NL', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-    document.getElementById('date-time').textContent = `${dateStr} | ${timeStr}`;
-}
-setInterval(updateDateTime, 1000);
-updateDateTime();
+    // Datum en tijd
+    function updateDateTime() {
+        const dt = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const dateStr = dt.toLocaleDateString('nl-NL', options);
+        const timeStr = dt.toLocaleTimeString('nl-NL', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        document.getElementById('date-time').textContent = `${dateStr} | ${timeStr}`;
+    }
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
 
-// Continu scroll ticker
-const ticker = document.getElementById('ticker-content');
-let tickerX = 0;
+    // Continu scroll ticker
+    const ticker = document.getElementById('ticker-content');
+    let tickerX = 0;
 
-function animateTicker() {
-    tickerX -= 1; // snelheid van scroll
-    const width = ticker.offsetWidth;
-    const parentWidth = ticker.parentElement.offsetWidth;
+    function animateTicker() {
+        tickerX -= 1; // snelheid
+        const width = ticker.offsetWidth;
+        const parentWidth = ticker.parentElement.offsetWidth;
 
-    // reset als volledig uit beeld
-    if (tickerX <= -width) {
-        tickerX = parentWidth;
+        if (tickerX <= -width) {
+            tickerX = parentWidth;
+        }
+
+        ticker.style.transform = `translateX(${tickerX}px)`;
+        requestAnimationFrame(animateTicker);
     }
 
-    ticker.style.transform = `translateX(${tickerX}px)`;
-    requestAnimationFrame(animateTicker);
-}
-
-animateTicker();
+    animateTicker();
 </script>
 
 </body>

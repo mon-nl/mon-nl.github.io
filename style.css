@@ -1,4 +1,6 @@
-/* Algemeen */
+/* ============================= */
+/* Algemene instellingen */
+/* ============================= */
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
@@ -7,14 +9,15 @@ body {
     color: #333;
 }
 
+/* ============================= */
 /* Header */
+/* ============================= */
 header {
     background-color: #e30613;
     color: white;
     padding: 10px 20px;
 }
 
-/* Header-top: logo + datum/tijd */
 .header-top {
     display: flex;
     justify-content: space-between;
@@ -31,7 +34,9 @@ header {
     font-weight: bold;
 }
 
+/* ============================= */
 /* Navigatie */
+/* ============================= */
 nav {
     background-color: #fff;
     border-bottom: 1px solid #ddd;
@@ -42,6 +47,7 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
+    justify-content: space-around; /* menu-items gelijkmatig verdelen */
 }
 
 nav ul li {
@@ -54,13 +60,17 @@ nav ul li a {
     text-decoration: none;
     color: #333;
     font-weight: bold;
+    transition: 0.3s;
 }
 
 nav ul li a:hover {
     background-color: #f2f2f2;
+    border-radius: 4px;
 }
 
-/* Breaking news banner */
+/* ============================= */
+/* Breaking news ticker */
+/* ============================= */
 #breaking-news {
     background-color: #000;
     color: #fff;
@@ -79,7 +89,6 @@ nav ul li a:hover {
     flex-shrink: 0;
 }
 
-/* Ticker wrapper */
 .ticker-wrapper {
     flex: 1;
     overflow: hidden;
@@ -92,20 +101,25 @@ nav ul li a:hover {
     position: relative; /* nodig voor JS transform */
 }
 
-.ticker-content .ticker-icon {
+.ticker-icon {
     height: 18px;
     margin: 0 10px;
     vertical-align: middle;
 }
 
+/* ============================= */
 /* Hoofdcontent */
+/* ============================= */
 .container {
     width: 90%;
     max-width: 1100px;
     margin: 20px auto;
+    display: flex;
+    gap: 20px;
 }
 
 article {
+    flex: 3;
     margin-bottom: 30px;
 }
 
@@ -113,7 +127,20 @@ article h2 {
     color: #e30613;
 }
 
-/* Weer afbeelding */
+/* Sidebar */
+.sidebar {
+    flex: 1;
+    background-color: #f2f2f2;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 0;
+}
+
+.sidebar h3 {
+    color: #e30613;
+}
+
+/* Weer afbeelding voorbeeld */
 .weather-img {
     width: 100%;
     max-width: 600px;
@@ -123,32 +150,9 @@ article h2 {
     box-shadow: 0px 0px 8px rgba(0,0,0,0.1);
 }
 
-/* Sidebar */
-.sidebar {
-    background-color: #f2f2f2;
-    padding: 10px;
-    margin-top: 20px;
-}
-
-.sidebar h3 {
-    color: #e30613;
-}
-
-/* Flex layout */
-.main-content {
-    display: flex;
-    gap: 20px;
-}
-
-.main-content article {
-    flex: 3;
-}
-
-.sidebar {
-    flex: 1;
-}
-
+/* ============================= */
 /* Footer */
+/* ============================= */
 footer {
     background-color: #222;
     color: #fff;
@@ -158,13 +162,21 @@ footer {
     font-size: 14px;
 }
 
-/* Responsive */
+/* ============================= */
+/* Responsive design */
+/* ============================= */
 @media (max-width: 800px) {
-    .main-content {
+    /* Content stapelt bij kleinere schermen */
+    .container {
         flex-direction: column;
     }
 
+    /* Navigatie verticaal */
     nav ul {
         flex-direction: column;
+    }
+
+    nav ul li a {
+        padding: 12px;
     }
 }
