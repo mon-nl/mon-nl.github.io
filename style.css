@@ -1,5 +1,5 @@
 /* ============================= */
-/* Algemene instellingen */
+/* Algemeen en body instellingen */
 /* ============================= */
 body {
     font-family: Arial, Helvetica, sans-serif;
@@ -7,10 +7,46 @@ body {
     padding: 0;
     background-color: #f9f9f9;
     color: #333;
+    box-sizing: border-box; /* Zorgt ervoor dat padding/margin niet uit de breedte wordt gehaald */
 }
 
 /* ============================= */
-/* Header */
+/* Introductie sectie (tekst en logo) */
+/* ============================= */
+.intro {
+    width: 100%;
+    max-width: 1100px; /* Max breedte voor grotere schermen */
+    margin: 0 auto; /* Centreer de container */
+    padding: 20px;
+    text-align: center;
+}
+
+.intro h1 {
+    color: #e30613;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.intro p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    padding: 0 15px; /* Zorgt voor ruimte aan de zijkanten */
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.logo-container img {
+    max-width: 200px; /* Zorgt ervoor dat het logo niet te groot is */
+    height: auto;
+}
+
+/* ============================= */
+/* Header instellingen */
 /* ============================= */
 header {
     background-color: #e30613;
@@ -35,7 +71,7 @@ header {
 }
 
 /* ============================= */
-/* Navigatie */
+/* Navigatie instellingen */
 /* ============================= */
 nav {
     background-color: #fff;
@@ -108,7 +144,7 @@ nav ul li a:hover {
 }
 
 /* ============================= */
-/* Hoofdcontent */
+/* Hoofdcontent instellingen */
 /* ============================= */
 .container {
     width: 90%;
@@ -127,7 +163,7 @@ article h2 {
     color: #e30613;
 }
 
-/* Sidebar */
+/* Sidebar instellingen */
 .sidebar {
     flex: 1;
     background-color: #f2f2f2;
@@ -140,18 +176,8 @@ article h2 {
     color: #e30613;
 }
 
-/* Weer afbeelding voorbeeld */
-.weather-img {
-    width: 100%;
-    max-width: 600px;
-    display: block;
-    margin: 15px 0;
-    border-radius: 5px;
-    box-shadow: 0px 0px 8px rgba(0,0,0,0.1);
-}
-
 /* ============================= */
-/* Footer */
+/* Footer instellingen */
 /* ============================= */
 footer {
     background-color: #222;
