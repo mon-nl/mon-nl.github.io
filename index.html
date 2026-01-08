@@ -24,7 +24,7 @@
     <div id="breaking-news">
         <span>Breaking News:</span>
         <div class="ticker-wrapper">
-            <div class="ticker-content">
+            <div class="ticker-content" id="ticker-content">
                 Nieuwe onderwijsprogramma's en technologie verbeteren de Nederlandse verzorgingsstaat!
                 <img src="MON wereldbol.svg" alt="Wereldbol" class="ticker-icon">
                 Robotisering in de zorg vermindert werkdruk en verhoogt kwaliteit van zorg!
@@ -73,8 +73,9 @@
     &copy; 2040 De Toekomst van Nederland | Alle rechten voorbehouden
 </footer>
 
-<!-- JavaScript: dynamische datum en tijd -->
+<!-- JavaScript: dynamische datum/tijd + ticker -->
 <script>
+// Datum en tijd
 function updateDateTime() {
     const dt = new Date();
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -82,9 +83,28 @@ function updateDateTime() {
     const timeStr = dt.toLocaleTimeString('nl-NL', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
     document.getElementById('date-time').textContent = `${dateStr} | ${timeStr}`;
 }
-
 setInterval(updateDateTime, 1000);
 updateDateTime();
+
+// Continu scroll ticker
+const ticker = document.getElementById('ticker-content');
+let tickerX = 0;
+
+function animateTicker() {
+    tickerX -= 1; // snelheid van scroll
+    const width = ticker.offsetWidth;
+    const parentWidth = ticker.parentElement.offsetWidth;
+
+    // reset als volledig uit beeld
+    if (tickerX <= -width) {
+        tickerX = parentWidth;
+    }
+
+    ticker.style.transform = `translateX(${tickerX}px)`;
+    requestAnimationFrame(animateTicker);
+}
+
+animateTicker();
 </script>
 
 </body>

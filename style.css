@@ -79,7 +79,7 @@ nav ul li a:hover {
     flex-shrink: 0;
 }
 
-/* Ticker wrapper en content */
+/* Ticker wrapper */
 .ticker-wrapper {
     flex: 1;
     overflow: hidden;
@@ -89,20 +89,13 @@ nav ul li a:hover {
 .ticker-content {
     display: inline-block;
     white-space: nowrap;
-    padding-left: 100%;
-    animation: scroll-left 25s linear infinite;
+    position: relative; /* nodig voor JS transform */
 }
 
 .ticker-content .ticker-icon {
     height: 18px;
     margin: 0 10px;
     vertical-align: middle;
-}
-
-/* Animatie scroll */
-@keyframes scroll-left {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
 }
 
 /* Hoofdcontent */
@@ -167,9 +160,5 @@ footer {
 
     nav ul {
         flex-direction: column;
-    }
-
-    .ticker-content {
-        animation-duration: 40s; /* langzamer scrollen op mobiel */
     }
 }
