@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<!-- Header met logo, datum/tijd en breaking news -->
+<!-- Header -->
 <header>
     <div class="header-top">
         <!-- Logo -->
@@ -23,15 +23,19 @@
     <!-- Breaking news ticker -->
     <div id="breaking-news">
         <span>Breaking News:</span>
-        <p>
-            Nieuwe onderwijsprogramma's en technologie verbeteren de Nederlandse verzorgingsstaat!
-            <img src="MON wereldbol.svg" alt="Wereldbol" class="ticker-icon">
-            Robotisering in de zorg vermindert werkdruk en verhoogt kwaliteit van zorg!
-            <img src="MON wereldbol.svg" alt="Wereldbol" class="ticker-icon">
-            Sociale zekerheid biedt nu zekerheid voor flexwerkers en zzp’ers!
-        </p>
+        <div class="ticker-wrapper">
+            <div class="ticker-content">
+                Nieuwe onderwijsprogramma's en technologie verbeteren de Nederlandse verzorgingsstaat!
+                <img src="MON wereldbol.svg" alt="Wereldbol" class="ticker-icon">
+                Robotisering in de zorg vermindert werkdruk en verhoogt kwaliteit van zorg!
+                <img src="MON wereldbol.svg" alt="Wereldbol" class="ticker-icon">
+                Sociale zekerheid biedt nu zekerheid voor flexwerkers en zzp’ers!
+                <img src="MON wereldbol.svg" alt="Wereldbol" class="ticker-icon">
+                Innovaties in woningmarkt en digitalisering ondersteunen een bloeiende economie!
+                <img src="MON wereldbol.svg" alt="Wereldbol" class="ticker-icon">
+            </div>
+        </div>
     </div>
-
 </header>
 
 <!-- Navigatie -->
@@ -79,7 +83,6 @@ function updateDateTime() {
     document.getElementById('date-time').textContent = `${dateStr} | ${timeStr}`;
 }
 
-// Update elke seconde
 setInterval(updateDateTime, 1000);
 updateDateTime();
 </script>

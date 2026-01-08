@@ -1,5 +1,3 @@
-/* style.css - Algemeen voor alle pagina's */
-
 /* Algemeen */
 body {
     font-family: Arial, Helvetica, sans-serif;
@@ -14,10 +12,9 @@ header {
     background-color: #e30613;
     color: white;
     padding: 10px 20px;
-    position: relative;
 }
 
-/* Header top: logo + datum/tijd */
+/* Header-top: logo + datum/tijd */
 .header-top {
     display: flex;
     justify-content: space-between;
@@ -67,13 +64,13 @@ nav ul li a:hover {
 #breaking-news {
     background-color: #000;
     color: #fff;
-    padding: 6px 20px;
     font-weight: bold;
     font-size: 14px;
-    overflow: hidden;
-    position: relative;
     display: flex;
     align-items: center;
+    padding: 6px 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
 }
 
 #breaking-news span {
@@ -82,36 +79,39 @@ nav ul li a:hover {
     flex-shrink: 0;
 }
 
-/* Scrollende tekst */
-#breaking-news p {
+/* Ticker wrapper en content */
+.ticker-wrapper {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+.ticker-content {
     display: inline-block;
     white-space: nowrap;
     padding-left: 100%;
-    margin: 0;
-    animation: scroll-left 20s linear infinite;
+    animation: scroll-left 25s linear infinite;
 }
 
-/* Afbeeldingen in ticker */
-#breaking-news .ticker-icon {
-    height: 18px; /* pas aan voor juiste grootte */
+.ticker-content .ticker-icon {
+    height: 18px;
     margin: 0 10px;
     vertical-align: middle;
 }
 
 /* Animatie scroll */
 @keyframes scroll-left {
-    0% { transform: translateX(0%); }
+    0% { transform: translateX(0); }
     100% { transform: translateX(-100%); }
 }
 
-/* Container en hoofdcontent */
+/* Hoofdcontent */
 .container {
     width: 90%;
     max-width: 1100px;
     margin: 20px auto;
 }
 
-/* Artikelen */
 article {
     margin-bottom: 30px;
 }
@@ -124,7 +124,7 @@ article p {
     line-height: 1.6;
 }
 
-/* Sidebar / Widgets */
+/* Sidebar */
 .sidebar {
     background-color: #f2f2f2;
     padding: 10px;
@@ -135,7 +135,7 @@ article p {
     color: #e30613;
 }
 
-/* Flex layout hoofdcontent + sidebar */
+/* Flex layout */
 .main-content {
     display: flex;
     gap: 20px;
@@ -159,7 +159,7 @@ footer {
     font-size: 14px;
 }
 
-/* Responsive: kleiner scherm */
+/* Responsive */
 @media (max-width: 800px) {
     .main-content {
         flex-direction: column;
@@ -169,7 +169,7 @@ footer {
         flex-direction: column;
     }
 
-    #breaking-news p {
-        animation: scroll-left 30s linear infinite; /* vertraag scroll op smalle schermen */
+    .ticker-content {
+        animation-duration: 40s; /* langzamer scrollen op mobiel */
     }
 }
