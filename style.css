@@ -1,5 +1,6 @@
 /* style.css - Algemeen voor alle pagina's */
 
+/* Algemeen */
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
@@ -8,6 +9,7 @@ body {
     color: #333;
 }
 
+/* Header */
 header {
     background-color: #e30613;
     color: white;
@@ -15,11 +17,24 @@ header {
     position: relative;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 28px;
+/* Header top: logo + datum/tijd */
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
+.logo img {
+    display: block;
+    height: 50px;
+}
+
+.date-time {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Navigatie */
 nav {
     background-color: #fff;
     border-bottom: 1px solid #ddd;
@@ -52,22 +67,51 @@ nav ul li a:hover {
 #breaking-news {
     background-color: #000;
     color: #fff;
-    padding: 8px 20px;
+    padding: 6px 20px;
     font-weight: bold;
     font-size: 14px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
 #breaking-news span {
     color: #e30613;
+    margin-right: 10px;
+    flex-shrink: 0;
 }
 
-/* Content */
+/* Scrollende tekst */
+#breaking-news p {
+    display: inline-block;
+    white-space: nowrap;
+    padding-left: 100%;
+    margin: 0;
+    animation: scroll-left 20s linear infinite;
+}
+
+/* Afbeeldingen in ticker */
+#breaking-news .ticker-icon {
+    height: 18px; /* pas aan voor juiste grootte */
+    margin: 0 10px;
+    vertical-align: middle;
+}
+
+/* Animatie scroll */
+@keyframes scroll-left {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Container en hoofdcontent */
 .container {
     width: 90%;
     max-width: 1100px;
     margin: 20px auto;
 }
 
+/* Artikelen */
 article {
     margin-bottom: 30px;
 }
@@ -80,17 +124,7 @@ article p {
     line-height: 1.6;
 }
 
-/* Footer */
-footer {
-    background-color: #222;
-    color: #fff;
-    text-align: center;
-    padding: 15px 0;
-    margin-top: 40px;
-    font-size: 14px;
-}
-
-/* Extra: Sidebar / Widgets */
+/* Sidebar / Widgets */
 .sidebar {
     background-color: #f2f2f2;
     padding: 10px;
@@ -101,7 +135,7 @@ footer {
     color: #e30613;
 }
 
-/* Layout Flex */
+/* Flex layout hoofdcontent + sidebar */
 .main-content {
     display: flex;
     gap: 20px;
@@ -115,9 +149,27 @@ footer {
     flex: 1;
 }
 
-/* Responsive */
+/* Footer */
+footer {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 40px;
+    font-size: 14px;
+}
+
+/* Responsive: kleiner scherm */
 @media (max-width: 800px) {
     .main-content {
         flex-direction: column;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    #breaking-news p {
+        animation: scroll-left 30s linear infinite; /* vertraag scroll op smalle schermen */
     }
 }
