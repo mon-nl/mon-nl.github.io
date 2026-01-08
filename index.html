@@ -2,19 +2,36 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>De Toekomst van Nederland - Home</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- Header met logo, datum/tijd en breaking news -->
 <header>
-    <h1>De Toekomst van Nederland</h1>
+    <div class="header-top">
+        <!-- Logo -->
+        <div class="logo">
+            <img src="images/MON logo.svg" alt="MON Logo" height="50">
+        </div>
+
+        <!-- Datum en tijd -->
+        <div class="date-time" id="date-time"></div>
+    </div>
+
+    <!-- Breaking news ticker -->
+    <div id="breaking-news">
+        <span>Breaking News:</span>
+        <p>
+            Nieuwe onderwijsprogramma's en technologie verbeteren de Nederlandse verzorgingsstaat! &nbsp;|&nbsp; 
+            Robotisering in de zorg vermindert werkdruk en verhoogt kwaliteit van zorg! &nbsp;|&nbsp; 
+            Sociale zekerheid biedt nu zekerheid voor flexwerkers en zzp’ers!
+        </p>
+    </div>
 </header>
 
-<div id="breaking-news">
-    <strong>Breaking News:</strong> Nieuwe onderwijsprogramma's en technologie verbeteren de Nederlandse verzorgingsstaat!
-</div>
-
+<!-- Navigatie -->
 <nav>
     <ul>
         <li><a href="index.html">Home</a></li>
@@ -25,18 +42,44 @@
     </ul>
 </nav>
 
-<div class="container">
+<!-- Hoofdcontent -->
+<div class="container main-content">
+
+    <!-- Hoofdartikel -->
     <article>
         <h2>Welkom in 2040: een vernieuwde verzorgingsstaat</h2>
         <p>Na jaren van economische onzekerheid en personeelstekorten staat Nederland er in 2040 stabiel en vooruitstrevend voor. Door gerichte investeringen in onderwijs, gezondheidszorg en sociale zekerheid is het gelukt om welzijn en welvaart beter te combineren.</p>
         <p>De overheid heeft een actieve rol gekozen en werkt samen met burgers, bedrijven en maatschappelijke organisaties. Dankzij slimme inzet van <strong>automatisering</strong>, <strong>robotisering</strong> en internationale samenwerking binnen de <strong>globalisering</strong> blijft de verzorgingsstaat betaalbaar en toegankelijk.</p>
-        <p>Op deze website lees je hoe het onderwijs, de gezondheidszorg en de sociale zekerheid zich hebben ontwikkeld in 2040 en hoe zij elkaar versterken.</p>
+        <p>Op deze website lees je hoe het onderwijs, de gezondheidszorg en de sociale zekerheid zich hebben ontwikkeld in 2040 en hoe zij elkaar versterken. Daarnaast lees je over innovaties in de woningmarkt, technologie en arbeid die bijdragen aan een sterke samenleving.</p>
     </article>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h3>Extra info</h3>
+        <p>Investeringen in onderwijs, gezondheidszorg en sociale zekerheid hebben geleid tot een samenleving waarin mensen langer zelfstandig en gezond kunnen leven. Technologie ondersteunt professionals en burgers zonder dat persoonlijke aandacht verloren gaat.</p>
+    </div>
+
 </div>
 
+<!-- Footer -->
 <footer>
     &copy; 2040 De Toekomst van Nederland | Alle rechten voorbehouden
 </footer>
+
+<!-- JavaScript: dynamische datum en tijd -->
+<script>
+function updateDateTime() {
+    const dt = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const dateStr = dt.toLocaleDateString('nl-NL', options);
+    const timeStr = dt.toLocaleTimeString('nl-NL', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    document.getElementById('date-time').textContent = `${dateStr} | ${timeStr}`;
+}
+
+// Update elke seconde
+setInterval(updateDateTime, 1000);
+updateDateTime();
+</script>
 
 </body>
 </html>
